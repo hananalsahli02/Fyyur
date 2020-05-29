@@ -258,7 +258,7 @@ def venues():
 @app.route('/venues/search', methods=['POST'])
 def search_venues():
   search_term=request.form.get('search_term', '')
-  result = Venue.query.filter(Venue.name.like('%'+search_term+'%')).all()
+  result = Venue.query.filter(Venue.name.ilike('%'+search_term+'%')).all()
 
   new_data = []
   new_dict = {}
@@ -355,7 +355,7 @@ def artists():
 def search_artists():
 
   search_term=request.form.get('search_term', '')
-  result = Artist.query.filter(Artist.name.like('%'+search_term+'%')).all()
+  result = Artist.query.filter(Artist.name.ilike('%'+search_term+'%')).all()
 
   new_data = []
   new_dict = {}
